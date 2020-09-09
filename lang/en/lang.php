@@ -26,12 +26,12 @@ return [
             'description' => 'Dispaly an email address to users, but obfuscate it for spammers.',
             'email' => [
                 'title' => 'E-Mail',
-                'description' => 'The email address to display.',
+                'description' => 'The email address to display and link to.',
                 'validationMessage' => 'Not a valid email address.',
 			],
 			'anchor' => [
                 'title' => 'Anchor',
-                'description' => 'If given, display this text instead of the email address. Else, simply display the email address.',
+                'description' => 'If given, display this text instead of the email address. NOT your email address, this is not obfuscated.',
 			],
 			'subject' => [
                 'title' => 'Subject',
@@ -47,12 +47,12 @@ return [
             'description' => 'Dispaly a phone number to users, but obfuscate it for spammers.',
             'phone' => [
                 'title' => 'Phone Number',
-                'description' => 'The phone number to display.',
+                'description' => 'The phone number to display and link to.',
                 'validationMessage' => 'Not a valid phone number.',
 			],
 			'anchor' => [
                 'title' => 'Anchor',
-                'description' => 'If given, display this text instead of the phone number. Else, simply display the phone number.',
+                'description' => 'If given, display this text instead of the phone number. NOT your phone number, this is not obfuscated.',
 			],
         ],
     ],
