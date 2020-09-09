@@ -2,5 +2,5 @@ plugin:
     name: 'bauboo.obfuscation::lang.plugin.name'
     description: 'bauboo.obfuscation::lang.plugin.description'
     author: Bauboo
-    icon: oc-icon-youtube-play
+    icon: oc-icon-at
     homepage: ''

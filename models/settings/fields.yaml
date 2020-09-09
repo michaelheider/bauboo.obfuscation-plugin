@@ -1,8 +1,11 @@
 fields:
-    api_key:
-        label: bauboo.obfuscation::lang.settings.api_key_label
+    spamspan_inject:
+        label: bauboo.obfuscation::lang.settings.spamspan_inject_label
         span: full
-        required: 1
-        type: text
-        comment: bauboo.obfuscation::lang.settings.api_key_comment
-        placeholder: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh123_-
+        type: switch
+        default: true
+        comment: bauboo.obfuscation::lang.settings.spamspan_inject_comment
+    partial1:
+        span: auto
+        path: $/bauboo/obfuscation/models/settings/_hint.htm
+        type: partial

@@ -1,5 +1,5 @@
 <?php
-namespace Bauboo\YouTube\Models;
+namespace Bauboo\Obfuscation\Models;
 
 use Model;
 use October\Rain\Database\Traits\Validation as ValidationTrait;

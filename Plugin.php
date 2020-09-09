@@ -1,6 +1,6 @@
 <?php
 
-namespace Bauboo\YouTube;
+namespace Bauboo\Obfuscation;
 
 use System\Classes\PluginBase;
 
@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Bauboo\Obfuscation\Components\Mail' => 'mail',
+            'Bauboo\Obfuscation\Components\EMail' => 'mail',
         ];
     }
 
@@ -25,8 +25,8 @@ class Plugin extends PluginBase
             'general' => [
                 'label' => 'bauboo.obfuscation::lang.plugin.name',
                 'description' => 'bauboo.obfuscation::lang.settings_item.description',
-                'icon' => 'oc-icon-youtube-play',
-                'class' => 'Bauboo\obfuscation\Models\Settings',
+                'icon' => 'oc-icon-at',
+                'class' => 'Bauboo\Obfuscation\Models\Settings',
                 'permissions' => ['bauboo.obfuscation.access_settings'],
                 'keywords' => 'bauboo.obfuscation::lang.settings_item.keywords',
             ],
