@@ -82,7 +82,7 @@ class EMail extends ComponentBase
         $this->anchor = $this->property('anchor');
         $this->subject = $this->property('subject');
         $this->body = $this->property('body');
-        $this->hasOptional = !(is_null($this->anchor) && is_null($this->subject) && is_null($this->body));
+        $this->hasOptional = !(($this->anchor === '') && ($this->subject === '') && ($this->body === ''));
         $email = $this->property('email');
         $parts = $this->parseEmail($email);
         $this->local = $parts['local'];
