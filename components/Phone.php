@@ -29,9 +29,9 @@ class Phone extends ComponentBase
                 'title' => 'bauboo.obfuscation::lang.components.phone.phone.title',
                 'description' => 'bauboo.obfuscation::lang.components.phone.phone.description',
                 'type' => 'string',
-                'validationPattern' => '^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$',
+                'validationPattern' => '^\+?[\d \(\)-]+$', // very loose regex, but people write phone numbers in weird formats
                 'validationMessage' => 'bauboo.obfuscation::lang.components.phone.phone.validationMessage',
-                'default' => 'local@example.com',
+                'default' => '+12 123 123 4567',
                 'required' => true,
             ],
             'anchor' => [
@@ -40,37 +40,17 @@ class Phone extends ComponentBase
                 'type' => 'string',
                 'default' => '',
             ],
-            'subject' => [
-                'title' => 'bauboo.obfuscation::lang.components.phone.subject.title',
-                'description' => 'bauboo.obfuscation::lang.components.phone.subject.description',
-                'type' => 'string',
-                'default' => '',
-            ],
-            'body' => [
-                'title' => 'bauboo.obfuscation::lang.components.phone.body.title',
-                'description' => 'bauboo.obfuscation::lang.components.phone.body.description',
-                'type' => 'string',
-                'default' => '',
-            ],
         ];
     }
 
-    /** @var string Full phone. */
-    public $phone;
-    /** @var string Local part of phone. */
-    public $local;
-    /** @var string Domain part except TLD of phone. */
-    public $domain;
-    /** @var string TLD part of phone. */
-    public $tld;
-    /** @var bool Whether optional fields are provided. */
-    public $hasOptional;
     /** @var string Anchor as provided by user. */
     public $anchor;
-    /** @var string Subject as provided by user. */
-    public $subject;
-    /** @var string Body as provided by user. */
-    public $body;
+    /** @var string Part 1 of phone number. */
+    public $part1;
+    /** @var string Part 2 of phone number. */
+    public $part2;
+    /** @var string Part 3 of phone number. */
+    public $part3;
 
     /**
      * {@inheritdoc}
@@ -82,36 +62,29 @@ class Phone extends ComponentBase
         }
 
         $this->anchor = $this->property('anchor');
-        $this->subject = $this->property('subject');
-        $this->body = $this->property('body');
-        $this->hasOptional = !(is_null($this->anchor) && is_null($this->subject) && is_null($this->body));
+
         $phone = $this->property('phone');
-        $parts = $this->parsePhone($phone);
-        $this->phone = $phone;
-        $this->local = $parts['local'];
-        $this->domain = $parts['domain'];
-        $this->tld = $parts['tld'];
+        $len = strlen($phone) / 3;
+        $this->part1 = substr($phone, 0, $len);
+        $this->part2 = substr($phone, $len, $len);
+        $this->part3 = substr($phone, 2 * $len);
     }
 
     /**
      * @param string $phone
      *
-     * @return array
+     * @return string Clean phone number. At least one digit, optionally a leading '+' and nothing else.
      *
-     * @throws InvalidArgumentException if $phone is not a valid phone string
+     * @throws InvalidArgumentException If $phone is not a valid phone number.
      */
-    protected function parsePhone($phone)
+    protected function cleanPhone($phone)
     {
-        if (!filter_var($phone, FILTER_VALIDATE_EMAIL)) {
-            // Should always be OK, since we already check in the input field.
-            throw new InvalidArgumentException('E-Mail address provided is not valid.');
+        // Remove everything except digits and plus signs.
+        $phoneClean = preg_replace("/[^\d\+]/", '', $phone);
+        if (0 === preg_match("/\+?\d+/", $phoneClean)) {
+            throw new InvalidArgumentException('Phone number provided is not valid.');
         }
-        $at = strrpos($phone, '@');
-        $dot = strrpos($phone, '.');
-        $local = substr($phone, 0, $at);
-        $domain = substr($phone, $at + 1, $dot - $at - 1);
-        $tld = substr($phone, $dot + 1);
 
-        return ['local' => $local, 'domain' => $domain, 'tld' => $tld];
+        return $phoneClean;
     }
 }
