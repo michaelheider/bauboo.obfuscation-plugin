@@ -55,8 +55,6 @@ class EMail extends ComponentBase
         ];
     }
 
-    /** @var string Full email. */
-    public $email;
     /** @var string Local part of email. */
     public $local;
     /** @var string Domain part except TLD of email. */
@@ -87,7 +85,6 @@ class EMail extends ComponentBase
         $this->hasOptional = !(is_null($this->anchor) && is_null($this->subject) && is_null($this->body));
         $email = $this->property('email');
         $parts = $this->parseEmail($email);
-        $this->email = $email;
         $this->local = $parts['local'];
         $this->domain = $parts['domain'];
         $this->tld = $parts['tld'];
