@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Bauboo\Obfuscation\Components\EMail' => 'mail',
+            'Bauboo\Obfuscation\Components\EMail' => 'email',
         ];
     }
 
