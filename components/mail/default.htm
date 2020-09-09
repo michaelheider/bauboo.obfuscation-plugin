@@ -1,0 +1,54 @@
+{% set video = __SELF__ %}
+
+<div class="container">
+	<h3>{{ video.data.title }}</h3>
+	<p class='small'>by: {{ video.data.channelTitle }} at: {{ video.data.publishedAt }}</p>
+	<div class='row mb-3'>
+		<div class='col-md-6 mb-2'>
+			{% if video.isResponsive %}
+				<div class='embed-responsive embed-responsive-{{ video.responsiveRatio }}'>
+					<iframe class='embed-responsive-item'
+						src='https://www.youtube{% if video.privacyMode %}-nocookie{% endif %}.com/embed/{{video.videoId}}?controls={{video.playerControls ? 1 : 0}}'
+						allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+					</iframe>
+				</div>
+			{% else %}
+				<iframe width='{{ video.width }}' height='{{ video.height }}' frameborder='0'
+					src='https://www.youtube{% if video.privacyMode %}-nocookie{% endif %}.com/embed/{{video.videoId}}?controls={{video.playerControls ? 1 : 0}}'
+					allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+				</iframe>
+			{% endif %}
+			{% if video.error %}
+				<div class='text-danger'>
+					<h5>Error:</h5>
+					<p>{{ video.error }}</p>
+				</div>
+			{% endif %}
+		</div>
+		<div class='col-md-6 mb-2'>
+			{{ video.data.description|raw }}
+		</div>
+	</div>
+</div>
+
+<!-- 
+<h5>Tags:</h5>
+<ul class='list-group'>
+	{% for tag in video.data.tags %}
+		<li class='list-group-item'>{{ tag }}</li>
+	{% else %}
+		<li>No tags.</li>
+	{% endfor %}
+</ul>
+
+<h5>Thumbnails:</h5>
+<ul class='list-group'>
+	{% for thumbnail in video.data.thumbnails %}
+		<li class='list-group-item'>
+			<img src='{{ thumbnail.url }}' height='{{ thumbnail.height }}' width='{{ thumbnail.width }}' />
+		</li>
+	{% else %}
+		<li>No thumbnails.</li>
+	{% endfor %}
+</ul>
+-->
