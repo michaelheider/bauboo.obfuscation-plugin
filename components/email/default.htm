@@ -1,20 +1,20 @@
-{% set mail = __SELF__ %}
+{% set email = __SELF__ %}
 
-<span class="spamspan-replace">
-	<span class="local">{{ mail.local }}</span>
+<span class="spamspan-email">
+	<span class="local">{{ email.local }}</span>
 	[at]
-	<span class="domain">{{ mail.domain }} [dot] {{ mail.tld }}</span>
+	<span class="domain">{{ email.domain }} [dot] {{ email.tld }}</span>
 
-	{% if mail.hasOptional %}
+	{% if email.hasOptional %}
 	(
-		{% if mail.anchor %}
-			<span class="anchor">{{ mail.anchor }}</span>,
+		{% if email.anchor %}
+			<span class="anchor">{{ email.anchor }}</span>,
 		{% endif %}
-		{% if mail.subject %}
-			<span class="subject">{{ mail.subject }}</span>,
+		{% if email.subject %}
+			<span class="subject">{{ email.subject }}</span>,
 		{% endif %}
-		{% if mail.body %}
-			<span class="body">{{ mail.body }}</span>,
+		{% if email.body %}
+			<span class="body">{{ email.body }}</span>,
 		{% endif %}
 	)
 	{% endif %}

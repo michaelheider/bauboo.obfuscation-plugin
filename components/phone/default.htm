@@ -1,0 +1,10 @@
+{% set phone = __SELF__ %}
+
+<span class="spamspan-phone">
+	<span class="phone">
+		{{ phone.part1 }}-{{ phone.part2 }}\\{{ phone.part3 }}
+	</span>
+	{% if phone.anchor %}
+		(<span class="anchor">{{ phone.anchor }}</span>)
+	{% endif %}
+</span>
