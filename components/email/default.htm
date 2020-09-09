@@ -1,0 +1,21 @@
+{% set mail = __SELF__ %}
+
+<span class="spamspan-replace">
+	<span class="local">{{ mail.local }}</span>
+	[at]
+	<span class="domain">{{ mail.domain }} [dot] {{ mail.tld }}</span>
+
+	{% if mail.hasOptional %}
+	(
+		{% if mail.anchor %}
+			<span class="anchor">{{ mail.anchor }}</span>,
+		{% endif %}
+		{% if mail.subject %}
+			<span class="subject">{{ mail.subject }}</span>,
+		{% endif %}
+		{% if mail.body %}
+			<span class="body">{{ mail.body }}</span>,
+		{% endif %}
+	)
+	{% endif %}
+</span>

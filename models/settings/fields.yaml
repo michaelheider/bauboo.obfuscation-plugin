@@ -1,0 +1,11 @@
+fields:
+    spamspan_inject:
+        label: bauboo.obfuscation::lang.settings.spamspan_inject_label
+        span: full
+        type: switch
+        default: true
+        comment: bauboo.obfuscation::lang.settings.spamspan_inject_comment
+    partial1:
+        span: auto
+        path: $/bauboo/obfuscation/models/settings/_hint.htm
+        type: partial
