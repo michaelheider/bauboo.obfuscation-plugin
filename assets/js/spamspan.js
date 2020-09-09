@@ -28,7 +28,7 @@
 	---------------------------------------------------------------------------
 */
 
-let mainClass = 'spamspan-replace';
+let mainClass = 'spamspan-email';
 let localClass = 'local';
 let domainClass = 'domain';
 let anchorClass = 'anchor';
