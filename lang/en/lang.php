@@ -42,5 +42,26 @@ return [
                 'description' => 'Default body for the email.',
             ],
         ],
+        'phone' => [
+            'name' => 'Obfuscated Phone Number',
+            'description' => 'Dispaly an phone address to users, but obfuscate it for spammers.',
+            'phone' => [
+                'title' => 'E-Mail',
+                'description' => 'The phone address to display.',
+                'validationMessage' => 'Not a valid phone address.',
+			],
+			'anchor' => [
+                'title' => 'Anchor',
+                'description' => 'If given, display this text instead of the phone address. Else, simply display the phone address.',
+			],
+			'subject' => [
+                'title' => 'Subject',
+                'description' => 'Default subject for the phone.',
+			],
+			'body' => [
+                'title' => 'Body',
+                'description' => 'Default body for the phone.',
+            ],
+        ],
     ],
 ];

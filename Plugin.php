@@ -13,6 +13,7 @@ class Plugin extends PluginBase
     {
         return [
             'Bauboo\Obfuscation\Components\EMail' => 'email',
+            'Bauboo\Obfuscation\Components\Phone' => 'phone',
         ];
     }
 

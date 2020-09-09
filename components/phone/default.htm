@@ -1,0 +1,21 @@
+{% set phone = __SELF__ %}
+
+<span class="spamspan-replace">
+	<span class="local">{{ phone.local }}</span>
+	[at]
+	<span class="domain">{{ phone.domain }} [dot] {{ phone.tld }}</span>
+
+	{% if phone.hasOptional %}
+	(
+		{% if phone.anchor %}
+			<span class="anchor">{{ phone.anchor }}</span>,
+		{% endif %}
+		{% if phone.subject %}
+			<span class="subject">{{ phone.subject }}</span>,
+		{% endif %}
+		{% if phone.body %}
+			<span class="body">{{ phone.body }}</span>,
+		{% endif %}
+	)
+	{% endif %}
+</span>
