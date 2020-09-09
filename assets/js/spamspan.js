@@ -39,7 +39,7 @@
 	- '-' removed
 	- '\' removed
 	Phone number link:
-	- remove everything that is not a digit except leading '+' if avaiable
+	- remove everything that is not a digit except leading '+' if present
 	---------------------------------------------------------------------------
 */
 
