@@ -44,24 +44,16 @@ return [
         ],
         'phone' => [
             'name' => 'Obfuscated Phone Number',
-            'description' => 'Dispaly an phone address to users, but obfuscate it for spammers.',
+            'description' => 'Dispaly a phone number to users, but obfuscate it for spammers.',
             'phone' => [
-                'title' => 'E-Mail',
-                'description' => 'The phone address to display.',
-                'validationMessage' => 'Not a valid phone address.',
+                'title' => 'Phone Number',
+                'description' => 'The phone number to display.',
+                'validationMessage' => 'Not a valid phone number.',
 			],
 			'anchor' => [
                 'title' => 'Anchor',
-                'description' => 'If given, display this text instead of the phone address. Else, simply display the phone address.',
+                'description' => 'If given, display this text instead of the phone number. Else, simply display the phone number.',
 			],
-			'subject' => [
-                'title' => 'Subject',
-                'description' => 'Default subject for the phone.',
-			],
-			'body' => [
-                'title' => 'Body',
-                'description' => 'Default body for the phone.',
-            ],
         ],
     ],
 ];
