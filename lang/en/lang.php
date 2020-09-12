@@ -6,8 +6,8 @@ return [
 		'description' => 'Embed a YouTube video with additional data such as its description.',
 	],
 	'settings_item' => [
-		'description' => 'Set your YouTube API key and manage settings for embedded videos.',
-		'keywords' => 'YouTube Bauboo API key API-key',
+		'description' => 'Manage settings for Obfuscation plugin.',
+		'keywords' => 'Obfuscation Bauboo email phone',
 	],
 	'settings' => [
 		'spamspan_inject_label' => 'Inject SpamSpan',
