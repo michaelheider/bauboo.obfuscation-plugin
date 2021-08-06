@@ -28,7 +28,7 @@ The obfuscation is JavaScript based. This means that the HTML code contains only
 
 ### What about Users with JavaScript disabled
 
-The obfuscation is designed so that even without the transfomration, the data is still human readable. But it is less convenient, cannot be copy pasted and does not feature a link. If you want to see exactly what it looks like you can either disable JavaScript in your browser and reload your page, or temporarily disable inject SpamSpan in the plugin's settings.
+The obfuscation is designed so that even without the transformation, the data is still human readable. But it is less convenient, cannot be copy pasted and does not feature a link. If you want to see exactly what it looks like you can either disable JavaScript in your browser and reload your page, or temporarily disable inject SpamSpan in the plugin's settings.
 
 ### How Good is the Obfuscation
 

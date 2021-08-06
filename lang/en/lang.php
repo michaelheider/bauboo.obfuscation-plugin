@@ -3,7 +3,7 @@
 return [
 	'plugin' => [
 		'name' => 'Obfuscation',
-		'description' => 'Embed a YouTube video with additional data such as its description.',
+		'description' => 'Obfuscate emails and phone numbers for spammers, but not for your human visitors.',
 	],
 	'settings_item' => [
 		'description' => 'Manage settings for Obfuscation plugin.',
