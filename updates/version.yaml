@@ -3,3 +3,4 @@
 0.3.0: Renamed mail component to email.
 0.4.0: Phone component.
 1.0.0: Release.
+1.1.0: Add composer.json for compatibility with OctoberCMS 2.
