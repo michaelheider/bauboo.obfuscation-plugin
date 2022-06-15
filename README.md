@@ -4,7 +4,7 @@ Obfuscate emails and phone numbers for spammers, but not for your human visitors
 
 ## How to Use it
 
-Simply add the respective component onto your page and in specify the email address or phone number in the component's settings. The plugin will then automatically present bots with obscurified data, but humans receive a nicely formatted link.
+Simply add the respective component onto your page and in specify the email address or phone number in the component's settings. The plugin will then automatically present bots with obfuscated data, but humans receive a nicely formatted link.
 
 ## Why Should I Bother
 
