@@ -10,6 +10,12 @@ Simply add the respective component onto your page and in specify the email addr
 
 Spammers try to crawl to internet for email addresses to send spam to. This is why you sometimes see emails written like 'mail(at)example.com'. This improves your resilience against spammers, but it is also annoying for regular, human users. This plugin solves this problem, by transforming to human readable and even linked formats as soon as we are reasonably sure that a visitor is human.
 
-## Credits
+## Credit
 
-This plugin uses a modified version of the [SpamSpan](https://www.spamspan.com/) script to unobscurify emails.
+The obfuscation was partly inspired by [SpamSpan](https://www.spamspan.com/).
+
+## License
+
+All parts of this software are licensed under LGPL 3 or any later version (SPDX license indicator: LGPL-3.0-or-later). See the license files in the source code for details.
+
+Copyright 2022 Michael Heider

@@ -34,17 +34,17 @@ class Phone extends ComponentBase
 				'default' => '+12 123 123 4567',
 				'required' => true,
 			],
-			'anchor' => [
-				'title' => 'bauboo.obfuscation::lang.components.phone.anchor.title',
-				'description' => 'bauboo.obfuscation::lang.components.phone.anchor.description',
+			'display' => [
+				'title' => 'bauboo.obfuscation::lang.components.phone.display.title',
+				'description' => 'bauboo.obfuscation::lang.components.phone.display.description',
 				'type' => 'string',
 				'default' => '',
 			],
 		];
 	}
 
-	/** @var string Anchor as provided by user. */
-	public $anchor;
+	/** @var string display as provided by user. */
+	public $display;
 	/** @var string Part 1 of phone number. */
 	public $part1;
 	/** @var string Part 2 of phone number. */
@@ -57,11 +57,11 @@ class Phone extends ComponentBase
 	 */
 	public function onRun(): void
 	{
-		if (Settings::get('spamspan_inject', true)) {
-			$this->addJs('assets/js/spamspan.js');
+		if (Settings::get('obfuscation_inject', true)) {
+			$this->addJs('assets/js/obfuscation.js');
 		}
 
-		$this->anchor = $this->property('anchor');
+		$this->display = $this->property('display');
 
 		$phone = $this->property('phone');
 		$len = strlen($phone) / 3;

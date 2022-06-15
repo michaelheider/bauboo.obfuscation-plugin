@@ -5,3 +5,4 @@
 1.0.0: Release.
 1.1.0: Add composer.json for compatibility with OctoberCMS 2.
 1.1.1: Fix wrong license included.
+2.0.0: Change license. Replace modified SpamSpan with completely custom implementation.

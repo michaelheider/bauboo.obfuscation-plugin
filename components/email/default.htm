@@ -1,14 +1,14 @@
 {% set email = __SELF__ %}
 
-<span class="spamspan-email">
+<span class="obfuscation-email">
 	<span class="local">{{ email.local }}</span>
 	[at]
 	<span class="domain">{{ email.domain }} [dot] {{ email.tld }}</span>
 
 	{% if email.hasOptional %}
 	(
-		{% if email.anchor %}
-			<span class="anchor">{{ email.anchor }}</span>,
+		{% if email.display %}
+			<span class="display">{{ email.display }}</span>,
 		{% endif %}
 		{% if email.subject %}
 			<span class="subject">{{ email.subject }}</span>,
