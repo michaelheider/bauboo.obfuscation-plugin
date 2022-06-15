@@ -6,11 +6,18 @@
 		"october",
 		"octobercms",
 		"obfuscation",
-		"email"
+		"email",
+		"phone number"
+	],
+	"authors": [
+		{
+			"name": "Michael Heider",
+			"role": "Developer"
+		}
 	],
 	"license": "MIT",
 	"require": {
-        "php": ">=7.0",
+		"php": ">=7.0",
 		"composer/installers": "~1.0"
 	},
 	"minimum-stability": "dev"
