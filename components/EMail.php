@@ -34,9 +34,9 @@ class EMail extends ComponentBase
 				'default' => 'local@example.com',
 				'required' => true,
 			],
-			'anchor' => [
-				'title' => 'bauboo.obfuscation::lang.components.email.anchor.title',
-				'description' => 'bauboo.obfuscation::lang.components.email.anchor.description',
+			'display' => [
+				'title' => 'bauboo.obfuscation::lang.components.email.display.title',
+				'description' => 'bauboo.obfuscation::lang.components.email.display.description',
 				'type' => 'string',
 				'default' => '',
 			],
@@ -63,8 +63,8 @@ class EMail extends ComponentBase
 	public $tld;
 	/** @var bool Whether optional fields are provided. */
 	public $hasOptional;
-	/** @var string Anchor as provided by user. */
-	public $anchor;
+	/** @var string Display text as provided by user. */
+	public $display;
 	/** @var string Subject as provided by user. */
 	public $subject;
 	/** @var string Body as provided by user. */
@@ -75,14 +75,14 @@ class EMail extends ComponentBase
 	 */
 	public function onRun(): void
 	{
-		if (Settings::get('spamspan_inject', true)) {
-			$this->addJs('assets/js/spamspan.js');
+		if (Settings::get('obfuscation_inject', true)) {
+			$this->addJs('assets/js/obfuscation.js');
 		}
 
-		$this->anchor = $this->property('anchor');
+		$this->display = $this->property('display');
 		$this->subject = $this->property('subject');
 		$this->body = $this->property('body');
-		$this->hasOptional = !(($this->anchor === '') && ($this->subject === '') && ($this->body === ''));
+		$this->hasOptional = !(($this->display === '') && ($this->subject === '') && ($this->body === ''));
 		$email = $this->property('email');
 		$parts = $this->parseEmail($email);
 		$this->local = $parts['local'];

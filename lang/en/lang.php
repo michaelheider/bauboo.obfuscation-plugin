@@ -10,12 +10,8 @@ return [
 		'keywords' => 'Obfuscation Bauboo email phone',
 	],
 	'settings' => [
-		'spamspan_inject_label' => 'Inject SpamSpan',
-		'spamspan_inject_comment' => 'Whether to inject the modifed SpanSpam script. Disable this, if you are injecting it manually.',
-		'hint_title' => 'Credits',
-		'hint_text_prelink' => 'This plugin uses a modified version of the SpanSpam script provided ',
-		'hint_text_link' => 'here',
-		'hint_text_postlink' => '.',
+		'obfuscation_inject_label' => 'Inject Obfuscation Script?',
+		'obfuscation_inject_comment' => 'Whether to inject the obfuscation script. Disable this for testing purposes.',
 	],
 	'permissions' => [
 		'label' => 'Manage YouTube settings.',
@@ -29,8 +25,8 @@ return [
 				'description' => 'The email address to display and link to.',
 				'validationMessage' => 'Not a valid email address.',
 			],
-			'anchor' => [
-				'title' => 'Anchor',
+			'display' => [
+				'title' => 'Display Text',
 				'description' => 'If given, display this text instead of the email address. NOT your email address, this is not obfuscated.',
 			],
 			'subject' => [
@@ -50,8 +46,8 @@ return [
 				'description' => 'The phone number to display and link to.',
 				'validationMessage' => 'Not a valid phone number.',
 			],
-			'anchor' => [
-				'title' => 'Anchor',
+			'display' => [
+				'title' => 'Display Text',
 				'description' => 'If given, display this text instead of the phone number. NOT your phone number, this is not obfuscated.',
 			],
 		],

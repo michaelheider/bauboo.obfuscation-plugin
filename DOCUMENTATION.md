@@ -28,10 +28,8 @@ The obfuscation is JavaScript based. This means that the HTML code contains only
 
 ### What about Users with JavaScript disabled
 
-The obfuscation is designed so that even without the transformation, the data is still human readable. But it is less convenient, cannot be copy pasted and does not feature a link. If you want to see exactly what it looks like you can either disable JavaScript in your browser and reload your page, or temporarily disable inject SpamSpan in the plugin's settings.
+The obfuscation is designed so that even without the transformation, the data is still human readable. But it is less convenient, cannot be copy pasted and does not feature a link. If you want to see exactly what it looks like you can either disable JavaScript in your browser and reload your page, or temporarily disable injecting of the obfuscation script in the plugin's settings.
 
 ### How Good is the Obfuscation
 
 No obfuscation is perfect. Given a good enough bot or one that is tailored to exactly this format, you can still scrap the email address or phone number. However, it already requires significantly more effort. Furthermore, spammers could also execute the JavaScript before searching email addresses, but this is put a significantly higher load on their systems.
-
-The obfuscation is based on [SpamSpan](https://www.spamspan.com/), paranoia level 3.
