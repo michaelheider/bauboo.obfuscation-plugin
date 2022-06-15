@@ -4,3 +4,4 @@
 0.4.0: Phone component.
 1.0.0: Release.
 1.1.0: Add composer.json for compatibility with OctoberCMS 2.
+1.1.1: Fix wrong license included.
