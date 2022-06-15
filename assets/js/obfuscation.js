@@ -1,5 +1,9 @@
 'use strict';
 
+// MAIN EXECUTION POINT
+$(deobfuscate);
+
+/** Class names for spans in HTML. */
 const mailClasses = {
 	mainClass: 'obfuscation-email',
 	localClass: 'local',
@@ -8,29 +12,34 @@ const mailClasses = {
 	urlParams: ['subject', 'body']
 };
 
+/** Class names for spans in HTML. */
 const phoneClasses = {
 	mainClass: 'obfuscation-phone',
 	phone: 'phone',
 	displayClass: 'display'
 };
 
-$(document).ready(function () {
+/**
+ * Deobfuscate all emails and phone numbers.
+ * 
+ * @return {void}
+ */
+function deobfuscate() {
 	let spans = $('span');
 	let mailSpans = spans.filter('.' + mailClasses.mainClass);
 	let phoneSpans = spans.filter('.' + phoneClasses.mainClass);
 
-	mailSpans.each(function (index, span) {
+	mailSpans.each(function (_, span) {
 		// Get values.
 		let local = getText(span, mailClasses.localClass);
 		let domain = getText(span, mailClasses.domainClass);
 		let display = getText(span, mailClasses.displayClass);
 		// Prepare parameter values.
 		let params = [];
-		for (let j = 0; j < mailClasses.urlParams.length; j++) {
-			let paramSpanValue = getText(span, mailClasses.urlParams[j]);
+		for (const element of mailClasses.urlParams) {
+			let paramSpanValue = getText(span, element);
 			if (paramSpanValue !== '') {
-				params.push(mailClasses.urlParams[j] + '=' +
-					encodeURIComponent(paramSpanValue));
+				params.push(element + '=' + encodeURIComponent(paramSpanValue));
 			}
 		}
 		// Create clean tag.
@@ -45,7 +54,7 @@ $(document).ready(function () {
 		$(span).replaceWith(cleanTag);
 	});
 
-	phoneSpans.each(function (index, span) {
+	phoneSpans.each(function (_, span) {
 		// Get values.
 		let obfuscatedPhone = getText(span, phoneClasses.phone);
 		let display = getText(span, phoneClasses.displayClass);
@@ -57,14 +66,14 @@ $(document).ready(function () {
 		// Replace the obfuscated span with the clean tag.
 		$(span).replaceWith(cleanTag);
 	});
-});
+}
 
 /**
  * Given a span with mainClass as the scope, return the text in the sub-span with searchClass.
  * 
  * @param {Document | HTMLElement} scope
  * @param {string} searchClass
- * @return {string}
+ * @return {string} Text in inner span.
  */
 function getText(scope, searchClass) {
 	return $(scope).find('.' + searchClass).first().text();
@@ -75,11 +84,11 @@ function getText(scope, searchClass) {
  * @example 'example [dot] com' -> 'example.com'
  * 
  * @param {string} domain
- * @return {string}
+ * @return {string} Clean domain.
  */
 function cleanDomain(domain) {
 	// Replace all instances of '[dot]' with '.'.
-	domain = domain.replace(/\[dot\]/g, '.');
+	domain = domain.replace('[dot]', '.');
 	// Remove all whitespace.
 	domain = domain.replace(/\s+/g, '');
 	return domain;
@@ -88,33 +97,29 @@ function cleanDomain(domain) {
 /**
  * Remove obfuscation from a phone number.
  * Output is ideally equal to what the user originally entered.
- * - '[/]' and similar replaced with '/'
- * - '[\]' and similar replaced with '\'
- * - '[-]' and similar replaced with '-'
- * - '/' removed
- * - '-' removed
- * - '\' removed
+ * It is not the case, if the user entered two consecutive special chars,
+ * which is prohibited by the form.
  * 
  * @param {string} phone
- * @return {string}
+ * @return {string} Clean phone.
  */
 function cleanPhone(phone) {
-	// Replace letiations of [/] with '/'.
-	phone = phone.replace(/[\[\(\{]?[\/\\][\}\)\]]/g, '/');
-	// Replace letiations of [-] with '-'.
-	phone = phone.replace(/[\[\(\{]?[-+][\}\)\]]/g, '-');
-	// Remove /\-
-	phone = phone.replace(/[\/\\-]/g, '');
-	// Collapse multiple whitespace to single space.
-	phone = phone.replace(/\s+/g, ' ');
+	phone = phone.replaceAll('--', '');
+	phone = phone.replaceAll('//', '');
+	phone = phone.replaceAll('\\\\', '');
+	phone = phone.replaceAll('..', '');
+	// Collapse multiple whitespace to a single space.
+	phone = phone.replace(/\s+/g, '\xA0');
+	phone = phone.trim();
 	return phone;
 }
 
 /**
  * Make an obfuscated phone number machine readable.
+ * Keep only digits and optionally a leading '+'.
  * 
  * @param {string} phone
- * @return {string} Keep only digits and optionally a leading '+'.
+ * @return {string} Machine readable phone number.
  */
 function machinePhone(phone) {
 	let leadingPlus = false;
