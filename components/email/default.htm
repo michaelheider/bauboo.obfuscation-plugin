@@ -1,12 +1,11 @@
 {% set email = __SELF__ %}
 
+<!-- Changing below may brake the bauboo/obfuscation plugin. Change with care. -->
 <span class="obfuscation-email">
-	<span class="local">{{ email.local }}</span>
-	[at]
-	<span class="domain">{{ email.domain }} [dot] {{ email.tld }}</span>
+	<span class="local">{{ email.local }}</span>&nbsp;[at]&nbsp;<span class="domain">{{ email.domain }}&nbsp;[dot]&nbsp;{{ email.tld }}</span>
 
 	{% if email.hasOptional %}
-	(
+		(
 		{% if email.display %}
 			<span class="display">{{ email.display }}</span>,
 		{% endif %}
@@ -14,8 +13,8 @@
 			<span class="subject">{{ email.subject }}</span>,
 		{% endif %}
 		{% if email.body %}
-			<span class="body">{{ email.body }}</span>,
+			<span class="body">{{ email.body }}</span>
 		{% endif %}
-	)
+		)
 	{% endif %}
 </span>

@@ -6,3 +6,7 @@
 1.1.0: Add composer.json for compatibility with OctoberCMS 2.
 1.1.1: Fix wrong license included.
 2.0.0: Change license. Replace modified SpamSpan with completely custom implementation.
+2.1.0: |
+  Update phone regex to support more international formats.
+  Slightly change obfuscated layouts.
+  Bug fixes in human readable phone number cleaning.

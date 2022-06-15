@@ -29,7 +29,10 @@ class Phone extends ComponentBase
 				'title' => 'bauboo.obfuscation::lang.components.phone.phone.title',
 				'description' => 'bauboo.obfuscation::lang.components.phone.phone.description',
 				'type' => 'string',
-				'validationPattern' => '^\+?[\d \(\)-]+$', // very loose regex, but people write phone numbers in weird formats
+				// People write phone numbers in weird formats, see
+				// https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
+				// regex: May start with a +, then sequences of digits, single spaces or any single in "/-.()".
+				'validationPattern' => '^\+?(\d ?|[\/\-\.\(\)](\d| |$))+$',
 				'validationMessage' => 'bauboo.obfuscation::lang.components.phone.phone.validationMessage',
 				'default' => '+12 123 123 4567',
 				'required' => true,

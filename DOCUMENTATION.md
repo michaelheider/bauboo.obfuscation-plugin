@@ -11,7 +11,7 @@ Configuration:
 - Anchor: If given, display this text instead of the unobfuscated email / phone. Make sure this does not contain your email/phone, as it is not obfuscated!
 - E-Mail address / Phone number: Your email / phone in usual format (no obfuscation).
 
-### Mail Componenet
+### Mail Component
 
 Additional configuration:
 
@@ -32,4 +32,4 @@ The obfuscation is designed so that even without the transformation, the data is
 
 ### How Good is the Obfuscation
 
-No obfuscation is perfect. Given a good enough bot or one that is tailored to exactly this format, you can still scrap the email address or phone number. However, it already requires significantly more effort. Furthermore, spammers could also execute the JavaScript before searching email addresses, but this is put a significantly higher load on their systems.
+No obfuscation is perfect. Given a good enough bot or one that is tailored to exactly this format, you can still scrape the email addresses or phone numbers. However, it already requires more effort. Furthermore, spammers could also execute the JavaScript before searching email addresses, but this is a higher load on the spammers' systems.

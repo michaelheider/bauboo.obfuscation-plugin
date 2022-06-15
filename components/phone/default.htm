@@ -1,8 +1,9 @@
 {% set phone = __SELF__ %}
 
+<!-- Changing below may brake the bauboo/obfuscation plugin. Change with care. -->
 <span class="obfuscation-phone">
 	<span class="phone">
-		{{ phone.part1 }}-{{ phone.part2 }}\\{{ phone.part3 }}
+		{{ phone.part1 }}--{{ phone.part2 }}--{{ phone.part3 }}
 	</span>
 	{% if phone.display %}
 		(<span class="display">{{ phone.display }}</span>)
