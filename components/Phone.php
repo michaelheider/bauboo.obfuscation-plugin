@@ -34,7 +34,7 @@ class Phone extends ComponentBase
 				// regex: May start with a +, then sequences of digits, single spaces or any single in "/-.()".
 				'validationPattern' => '^\+?(\d ?|[\/\-\.\(\)](\d| |$))+$',
 				'validationMessage' => 'bauboo.obfuscation::lang.components.phone.phone.validationMessage',
-				'default' => '+12 123 123 4567',
+				'default' => '+44 113 496 0000',
 				'required' => true,
 			],
 			'display' => [

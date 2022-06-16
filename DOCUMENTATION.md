@@ -8,7 +8,7 @@ The plugin features two components, one for email addresses and one for phone nu
 
 Configuration:
 
-- Anchor: If given, display this text instead of the unobfuscated email / phone. Make sure this does not contain your email/phone, as it is not obfuscated!
+- Display Text: If given, display this text instead of the unobfuscated email / phone. Make sure this does not contain your email/phone, as it is not obfuscated!
 - E-Mail address / Phone number: Your email / phone in usual format (no obfuscation).
 
 ### Mail Component
@@ -20,7 +20,7 @@ Additional configuration:
 
 ### Phone Component
 
-The displayed phone number (assuming no anchor text is provided) is more or less equal to what was entered in the component's config. This means you can use your own phone number format. The phone number in the `href` has all non numeric characters removed, except a leading '+' if present.
+The displayed phone number (assuming no display text is provided) is equal to what was entered in the component's config. This means you can use your own phone number format. The phone number in the `href` has all non numeric characters removed, except a leading '+' if present.
 
 ## How it Works
 
@@ -28,8 +28,8 @@ The obfuscation is JavaScript based. This means that the HTML code contains only
 
 ### What about Users with JavaScript disabled
 
-The obfuscation is designed so that even without the transformation, the data is still human readable. But it is less convenient, cannot be copy pasted and does not feature a link. If you want to see exactly what it looks like you can either disable JavaScript in your browser and reload your page, or temporarily disable injecting of the obfuscation script in the plugin's settings.
+The obfuscation is designed so that even without the transformation, the data is still human readable, although slightly obfuscated. Also, it does not feature a link. If you want to see exactly what it looks like you can either temporarily disable injecting of the obfuscation script in the plugin's settings or disable JavaScript in your browser.
 
 ### How Good is the Obfuscation
 
-No obfuscation is perfect. Given a good enough bot or one that is tailored to exactly this format, you can still scrape the email addresses or phone numbers. However, it already requires more effort. Furthermore, spammers could also execute the JavaScript before searching email addresses, but this is a higher load on the spammers' systems.
+No obfuscation is perfect. Given a good enough bot or one that is tailored to exactly this format, you can still scrape the email addresses or phone numbers. However, it already requires more effort. Furthermore, spammers could also execute the JavaScript before searching email addresses, but this incurs a higher load on the spammers' systems.
