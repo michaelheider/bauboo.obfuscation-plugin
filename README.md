@@ -12,10 +12,10 @@ Spammers try to crawl to internet for email addresses to send spam to. This is w
 
 ## Credit
 
-The obfuscation was partly inspired by [SpamSpan](https://www.spamspan.com/).
+This plugin was partly inspired by [SpamSpan](https://www.spamspan.com/).
 
 ## License
 
-All parts of this software are licensed under LGPL 3 or any later version (SPDX license indicator: LGPL-3.0-or-later). See the license files in the source code for details.
+All parts of this software are licensed under LGPL 3.0 or any later version (SPDX license indicator: LGPL-3.0-or-later). See the license files in the source code for details.
 
 Copyright 2022 Michael Heider
