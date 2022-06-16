@@ -1,32 +1,37 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Bug Report
+about: Create a report to help us improve.
 title: ''
 labels: bug
 assignees: ''
-
 ---
 
-**Describtion**
+### Describtion
+
 A clear and concise description of what the bug is.
 
-**Steps to Reproduce**
+### Steps to Reproduce
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error '...'
 
-**Expected behavior**
+### Expected behavior
+
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+### Screenshots
+
 If applicable, add screenshots to help explain your problem.
 
-**Version (please complete the following information):**
- - Obfuscation plugin version:
- - OctoberCMS version:
- - Browser (version):
- - OS (version):
+### Version Information
 
-**Additional context**
+- Obfuscation plugin version:
+- OctoberCMS version:
+- Browser (version):
+- OS (version):
+
+### Additional context
+
 Add any other context about the problem.
