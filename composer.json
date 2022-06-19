@@ -7,7 +7,8 @@
 		"octobercms",
 		"obfuscation",
 		"email",
-		"phone number"
+		"phone number",
+		"spam"
 	],
 	"authors": [
 		{
