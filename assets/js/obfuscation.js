@@ -3,32 +3,34 @@
 // MAIN EXECUTION POINT
 $(deobfuscate);
 
-/** Class names for spans in HTML. */
-const mailClasses = {
-	mainClass: 'obfuscation-email',
-	localClass: 'local',
-	domainClass: 'domain',
-	displayClass: 'display',
-	urlParams: ['subject', 'body']
-};
-
-/** Class names for spans in HTML. */
-const phoneClasses = {
-	mainClass: 'obfuscation-phone',
-	phone: 'phone',
-	displayClass: 'display'
-};
-
 /**
  * Deobfuscate all emails and phone numbers.
  * 
  * @return {void}
  */
 function deobfuscate() {
+	// Define constants.
+	/** Class names for spans in HTML. */
+	const mailClasses = {
+		mainClass: 'obfuscation-email',
+		localClass: 'local',
+		domainClass: 'domain',
+		displayClass: 'display',
+		urlParams: ['subject', 'body']
+	};
+	/** Class names for spans in HTML. */
+	const phoneClasses = {
+		mainClass: 'obfuscation-phone',
+		phone: 'phone',
+		displayClass: 'display'
+	};
+
+	// Find relevant tags.
 	let spans = $('span');
 	let mailSpans = spans.filter('.' + mailClasses.mainClass);
 	let phoneSpans = spans.filter('.' + phoneClasses.mainClass);
 
+	// Process tags.
 	mailSpans.each(function (_, span) {
 		// Get values.
 		let local = getText(span, mailClasses.localClass);
@@ -53,7 +55,6 @@ function deobfuscate() {
 		// Replace the obfuscated span with the clean tag.
 		$(span).replaceWith(cleanTag);
 	});
-
 	phoneSpans.each(function (_, span) {
 		// Get values.
 		let obfuscatedPhone = getText(span, phoneClasses.phone);
